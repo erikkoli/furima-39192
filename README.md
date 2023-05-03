@@ -15,7 +15,6 @@
 
 has_many :exhibits
 has_many :purchases
-has_one :address
 
 ## exhibits テーブル
 
@@ -42,7 +41,8 @@ has_one :purchase
 | exhibit  | references | null: false, foreign_key: true |
 
 belongs_to :user
-has_one :exhibit
+belongs_to :exhibit
+has_one :address
 
 ## addresses テーブル
 
@@ -56,5 +56,4 @@ has_one :exhibit
 | phone_number  | string     | null: false, limit:11           |
 | purchase      | references | null: false, foreign_key: true  |
 
-has_one :user
-has_one :purchase
+belongs_to :purchase
