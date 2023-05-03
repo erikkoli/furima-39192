@@ -2,15 +2,20 @@
 
 ## users テーブル
 
-| Column             | Type    | Options                   |
-| ------------------ | ------- | ------------------------- |
-| last_name          | string  | null: false               |
-| first_name         | string  | null: false               |
-| last_name_kana     | string  | null: false               |
-| first_name_kana    | string  | null: false               |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false               |
-| birthday           | date    | null: false               |
+| Column                | Type    | Options                   |
+| --------------------- | ------- | ------------------------- |
+| nickname              | string  | null: false, unique: true |
+| last_name             | string  | null: false               |
+| first_name            | string  | null: false               |
+| last_name_kana        | string  | null: false               |
+| first_name_kana       | string  | null: false               |
+| email                 | string  | null: false, unique: true |
+| encrypted_password    | string  | null: false               |
+| birthday              | date    | null: false               |
+
+has_many :exhibits
+has_many :purchases
+has_one :address
 
 ## exhibits テーブル
 
@@ -23,8 +28,11 @@
 | condition_id | integer    | null: false                    |
 | postage_id   | integer    | null: false                    |
 | prefecture_id| integer    | null: false                    |
-| days_id      | integer    | null: false                    |
+| shipment_id  | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
+
+belongs_to :user
+has_one :purchase
 
 ## purchases テーブル
 
@@ -32,6 +40,9 @@
 | -------- | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
 | exhibit  | references | null: false, foreign_key: true |
+
+belongs_to :user
+has_one :exhibit
 
 ## addresses テーブル
 
@@ -43,4 +54,7 @@
 | house_number  | string     | null: false                     |
 | building      | string     |                                 |
 | phone_number  | string     | null: false, limit:11           |
-| user          | references | null: false, foreign_key: true  |
+| purchase      | references | null: false, foreign_key: true  |
+
+has_one :user
+has_one :purchase
