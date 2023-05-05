@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: ajax_app_development
+  database: furima_39192_development
 
 test:
   <<: *default
