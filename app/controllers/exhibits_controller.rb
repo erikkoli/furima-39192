@@ -21,6 +21,6 @@ class ExhibitsController < ApplicationController
   private
 
   def exhibit_params
-    params.require(:exhibit).permit(:product, :explain, :category_id)
+    params.require(:exhibit).permit(:product, :explain, :category_id, :image)
   end
 end
