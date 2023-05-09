@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :exhibit do
-    product       { Faker::Commerce.product_name  }
+    product       { Faker::Commerce.product_name }
     explain       { Faker::Lorem.sentence }
-    price         { Faker::Number.between(from: 300, to: 9999999) }
+    price         { Faker::Number.between(from: 300, to: 9_999_999) }
     category_id   { Faker::Number.between(from: 2, to: 21) }
     condition_id  { Faker::Number.between(from: 2, to: 8) }
     prefecture_id { Faker::Number.between(from: 2, to: 48) }

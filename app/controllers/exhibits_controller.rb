@@ -1,8 +1,8 @@
 class ExhibitsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]  
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @exhibits = Exhibit.order("created_at DESC")
+    @exhibits = Exhibit.order('created_at DESC')
   end
 
   def new
@@ -21,6 +21,7 @@ class ExhibitsController < ApplicationController
   private
 
   def exhibit_params
-    params.require(:exhibit).permit(:product, :explain, :price,   :category_id, :condition_id, :postage_id, :prefecture_id, :shipment_id, :image).merge(user_id: current_user.id)
+    params.require(:exhibit).permit(:product, :explain, :price, :category_id, :condition_id, :postage_id, :prefecture_id,
+                                    :shipment_id, :image).merge(user_id: current_user.id)
   end
 end
