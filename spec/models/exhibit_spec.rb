@@ -72,6 +72,11 @@ RSpec.describe Exhibit, type: :model do
         @exhibit.valid?
         expect(@exhibit.errors.full_messages).to include("Shipment can't be blank")
       end
+      it 'userが紐付いていなければ出品できない' do
+        @exhibit.user = nil
+        @exhibit.valid?
+        expect(@exhibit.errors.full_messages).to include("User must exist")
+      end
     end
   end
 end
