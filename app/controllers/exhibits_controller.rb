@@ -18,6 +18,9 @@ class ExhibitsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def exhibit_params
