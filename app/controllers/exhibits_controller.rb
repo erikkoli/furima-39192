@@ -19,6 +19,7 @@ class ExhibitsController < ApplicationController
   end
 
   def show
+    @exhibit = Exhibit.find(params[:id])
   end
 
   private
