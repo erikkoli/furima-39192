@@ -144,7 +144,7 @@
       <% else %>
         <% @exhibits.each do |exhibit| %>
           <li class='list'>
-            <%= link_to "#" do %>
+            <%= link_to exhibit_path(exhibit) do %>
             <div class='item-img-content'>
               <%= image_tag exhibit.image, class: "item-img" %>
 

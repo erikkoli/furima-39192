@@ -1,5 +1,5 @@
 class ExhibitsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @exhibits = Exhibit.order('created_at DESC')
@@ -16,6 +16,10 @@ class ExhibitsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @exhibit = Exhibit.find(params[:id])
   end
 
   private
