@@ -22,6 +22,9 @@ class ExhibitsController < ApplicationController
     @exhibit = Exhibit.find(params[:id])
   end
 
+  def edit
+  end
+
   private
 
   def exhibit_params
