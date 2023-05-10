@@ -8,3 +8,4 @@ class Postage < ActiveHash::Base
   include ActiveHash::Associations
   has_many :exhibits
 end
+  
