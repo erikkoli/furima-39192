@@ -2,7 +2,7 @@ class ExhibitsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    #@exhibits = Exhibit.order('created_at DESC')
+    @exhibits = Exhibit.order('created_at DESC')
   end
 
   def new
