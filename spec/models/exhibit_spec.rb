@@ -75,7 +75,7 @@ RSpec.describe Exhibit, type: :model do
       it 'userが紐付いていなければ出品できない' do
         @exhibit.user = nil
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("User must exist")
+        expect(@exhibit.errors.full_messages).to include('User must exist')
       end
     end
   end
