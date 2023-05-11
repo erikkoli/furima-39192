@@ -34,6 +34,12 @@ class ExhibitsController < ApplicationController
     end
   end
 
+  def destroy
+    exhibit = Exhibit.find(params[:id])
+    exhibit.destroy
+    redirect_to root_path
+  end
+
   private
 
   def exhibit_params
