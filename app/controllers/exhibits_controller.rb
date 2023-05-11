@@ -1,7 +1,7 @@
 class ExhibitsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_exhibit, only: [:show, :edit, :update]
-  before_action :contributor_confirmation, only: [:edit, :update]
+  before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @exhibits = Exhibit.order('created_at DESC')
@@ -32,6 +32,11 @@ class ExhibitsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @exhibit.destroy
+    redirect_to root_path
   end
 
   private
