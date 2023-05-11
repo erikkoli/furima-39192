@@ -48,5 +48,4 @@ class ExhibitsController < ApplicationController
   def contributor_confirmation
     redirect_to root_path unless current_user == @exhibit.user
   end
-
 end
