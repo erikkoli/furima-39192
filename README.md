@@ -53,7 +53,7 @@ has_one :address
 | city          | string     | null: false                     |
 | house_number  | string     | null: false                     |
 | building      | string     |                                 |
-| phone_number  | integer    | null: false, limit: 11          |
+| phone_number  | string     | null: false, limit: 11          |
 | purchase      | references | null: false, foreign_key: true  |
 
 belongs_to :purchase
