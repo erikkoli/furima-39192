@@ -1,5 +1,8 @@
 FactoryBot.define do
   factory :exhibit do
+
+    Faker::Config.locale = 'ja'
+    
     product       { Faker::Commerce.product_name }
     explain       { Faker::Lorem.sentence }
     price         { Faker::Number.between(from: 300, to: 9_999_999) }

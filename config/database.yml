@@ -16,7 +16,7 @@ test:
   username: root
   password:
   host: localhost
-  database: ajax_app_test
+  database: furima_39192_test
 
 production:
   <<: *default
