@@ -27,12 +27,12 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'post_codeがハイフンを含んだ正しい形式でないと保存できない' do
         @purchase_address.post_code = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Post code is invalid')
       end
       it 'post_codeが半角でないと保存できない' do
         @purchase_address.post_code = '１２３－４５６７'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Post code is invalid')
       end
       it 'prefecture_idが初期値では購入できない' do
         @purchase_address.prefecture_id = 1
@@ -57,17 +57,17 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'phone_numberが10桁以上ではないと購入できない' do
         @purchase_address.phone_number = '098765432'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is too short (minimum is 10 characters)')
       end
       it 'phone_numberが12桁以上では購入できない' do
         @purchase_address.phone_number = '098765432198'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
       it 'phone_numberが全角では購入できない' do
         @purchase_address.phone_number = '０９８７６５４３２１０'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'user_idが紐づいていないと購入できない' do
         @purchase_address.user_id = ''
@@ -79,7 +79,7 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Exhibit can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @purchase_address.token = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
