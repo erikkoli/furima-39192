@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_exhibit, only: [:index, :create]
   before_action :contributor_confirmation, only: :index
+  before_action :buyer_confirmation, only: :index
 
   def index
     @purchase_address = PurchaseAddress.new
@@ -32,6 +33,12 @@ class PurchasesController < ApplicationController
 
   def contributor_confirmation
     redirect_to root_path if current_user == @exhibit.user
+
+  end
+
+  def buyer_confirmation
+    @purchased_exhibits = Purchase.where(exhibit_id: @exhibit.id)
+    redirect_to root_path if @purchased_exhibits.exists?
   end
 
   def pay_item

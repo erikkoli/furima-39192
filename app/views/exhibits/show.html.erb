@@ -8,13 +8,11 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @exhibit.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
       <% if @purchased_exhibits.exists? %>
         <div class="sold-out">
          <span> Sold Out!! </span>
         </div>
       <% end %>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -26,13 +24,19 @@
     </div>
 
     <% if user_signed_in? && current_user == @exhibit.user %>
-      <%= link_to "商品の編集", edit_exhibit_path(@exhibit), method: :get, class: "item-red-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "削除", exhibit_path(@exhibit), method: :delete, class:"item-destroy" %>
+      <% if @purchased_exhibits.exists? %>
+      <% else %>
+        <%= link_to "商品の編集", edit_exhibit_path(@exhibit), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", exhibit_path(@exhibit), method: :delete, class:"item-destroy" %>
+      <% end %>
     <% end %>
 
     <% if user_signed_in? && current_user != @exhibit.user %>
-      <%= link_to "購入画面に進む", exhibit_purchases_path(@exhibit), class:"item-red-btn"%>
+      <% if @purchased_exhibits.exists? %>
+      <% else %>
+        <%= link_to "購入画面に進む", exhibit_purchases_path(@exhibit), class:"item-red-btn"%>
+      <% end %>
     <% end %>
 
     <div class="item-explain-box">
