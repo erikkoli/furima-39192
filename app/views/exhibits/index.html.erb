@@ -147,13 +147,11 @@
             <%= link_to exhibit_path(exhibit) do %>
             <div class='item-img-content'>
               <%= image_tag exhibit.image, class: "item-img" %>
-
-              <%# 商品が売れていればsold outを表示しましょう %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-              <%# //商品が売れていればsold outを表示しましょう %>
-
+              <% if @purchased_exhibits.include?(exhibit.id) %>
+                <div class="sold-out">
+                  <span> Sold Out!! </span>
+                </div>
+              <% end %>
             </div>
             <div class='item-info'>
               <h3 class='item-name'>
