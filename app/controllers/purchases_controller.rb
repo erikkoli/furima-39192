@@ -1,7 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_exhibit, only: [:index, :create]
-  before_action :contributor_confirmation, only: :index
-  before_action :buyer_confirmation, only: :index
+  before_action :contributor_confirmation, :buyer_confirmation, only: :index
 
   def index
     @purchase_address = PurchaseAddress.new
@@ -33,7 +32,6 @@ class PurchasesController < ApplicationController
 
   def contributor_confirmation
     redirect_to root_path if current_user == @exhibit.user
-
   end
 
   def buyer_confirmation

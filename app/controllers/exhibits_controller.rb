@@ -1,7 +1,7 @@
 class ExhibitsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
-  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  before_action :contributor_confirmation, :buyer_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @exhibits = Exhibit.order('created_at DESC')
@@ -50,6 +50,11 @@ class ExhibitsController < ApplicationController
 
   def set_exhibit
     @exhibit = Exhibit.find(params[:id])
+  end
+
+  def buyer_confirmation
+    @purchased_exhibits = Purchase.where(exhibit_id: @exhibit.id)
+    redirect_to root_path if @purchased_exhibits.exists?
   end
 
   def contributor_confirmation
