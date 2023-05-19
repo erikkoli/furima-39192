@@ -29,7 +29,7 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Post code is invalid")
       end
-      it 'post_codeが全角でないと保存できない' do
+      it 'post_codeが半角でないと保存できない' do
         @purchase_address.post_code = '１２３－４５６７'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Post code is invalid")
@@ -78,6 +78,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.exhibit_id = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Exhibit can't be blank")
+      end
+      it "tokenが空では登録できないこと" do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end

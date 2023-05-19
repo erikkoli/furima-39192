@@ -7,6 +7,7 @@ FactoryBot.define do
     house_number  { '中央区1-2-3' }
     building      { '海鮮ビル' }
     phone_number  { Faker::Number.number(digits: 11) }
+    token         {"tok_abcdefghijk00000000000000000"}
 
     association :user
     association :exhibit
