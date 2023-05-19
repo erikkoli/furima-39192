@@ -5,6 +5,7 @@ class ExhibitsController < ApplicationController
 
   def index
     @exhibits = Exhibit.order('created_at DESC')
+    @purchased_exhibits = Purchase.pluck(:exhibit_id)
   end
 
   def new
@@ -21,6 +22,7 @@ class ExhibitsController < ApplicationController
   end
 
   def show
+    @purchased_exhibits = Purchase.where(exhibit_id: @exhibit.id)
   end
 
   def edit
