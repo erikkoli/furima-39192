@@ -7,7 +7,7 @@ class PurchaseAddress
     validates :exhibit_id
     validates :house_number
     validates :post_code,    format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
-    validates :city, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
+    validates :city
     validates :phone_number, length: { minimum: 10, maximum: 11 }, format: { with: /\A[0-9]+\z/ }
     validates :token
   end
