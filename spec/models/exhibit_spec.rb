@@ -15,67 +15,67 @@ RSpec.describe Exhibit, type: :model do
       it 'productが空では作成できない' do
         @exhibit.product = ''
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Product can't be blank")
+        expect(@exhibit.errors.full_messages).to include("商品名を入力してください")
       end
       it 'explainが空では作成できない' do
         @exhibit.explain = ''
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Explain can't be blank")
+        expect(@exhibit.errors.full_messages).to include("商品説明を入力してください")
       end
       it 'priceが空では作成できない' do
         @exhibit.price = ''
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Price can't be blank")
+        expect(@exhibit.errors.full_messages).to include("金額は数値で入力してください")
       end
       it 'priceが全角では作成できない' do
         @exhibit.price = '５００'
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include('Price is not a number')
+        expect(@exhibit.errors.full_messages).to include('金額は数値で入力してください')
       end
       it 'priceが半角でも文字では作成できない' do
         @exhibit.price = 'ﾀﾅｶ'
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include('Price is not a number')
+        expect(@exhibit.errors.full_messages).to include('金額は数値で入力してください')
       end
       it 'priceが300未満では作成できない' do
         @exhibit.price = 299
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include('Price must be greater than or equal to 300')
+        expect(@exhibit.errors.full_messages).to include('金額は300以上の値にしてください')
       end
       it 'priceが10000000以上では作成できない' do
         @exhibit.price = 10_000_000
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include('Price must be less than or equal to 9999999')
+        expect(@exhibit.errors.full_messages).to include('画像を入力してください')
       end
       it 'category_idが初期値では作成できない' do
         @exhibit.category_id = 1
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Category can't be blank")
+        expect(@exhibit.errors.full_messages).to include("カテゴリーを選択してください")
       end
       it 'condition_idが初期値では作成できない' do
         @exhibit.condition_id = 1
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Condition can't be blank")
+        expect(@exhibit.errors.full_messages).to include("商品状態を選択してください")
       end
       it 'prefecture_idが初期値では作成できない' do
         @exhibit.prefecture_id = 1
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@exhibit.errors.full_messages).to include("発送元を選択してください")
       end
       it 'postage_idが初期値では作成できない' do
         @exhibit.postage_id = 1
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Postage can't be blank")
+        expect(@exhibit.errors.full_messages).to include("送料の負担を選択してください")
       end
       it 'shipment_idが初期値では作成できない' do
         @exhibit.shipment_id = 1
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include("Shipment can't be blank")
+        expect(@exhibit.errors.full_messages).to include("発送日数を選択してください")
       end
       it 'userが紐付いていなければ出品できない' do
         @exhibit.user = nil
         @exhibit.valid?
-        expect(@exhibit.errors.full_messages).to include('User must exist')
+        expect(@exhibit.errors.full_messages).to include('Userを入力してください')
       end
     end
   end
