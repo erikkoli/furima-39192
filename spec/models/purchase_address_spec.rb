@@ -22,67 +22,67 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'post_codeが空では購入できない' do
         @purchase_address.post_code = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post code can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("郵便番号を入力してください")
       end
       it 'post_codeがハイフンを含んだ正しい形式でないと保存できない' do
         @purchase_address.post_code = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Post code is invalid')
+        expect(@purchase_address.errors.full_messages).to include('郵便番号は不正な値です')
       end
       it 'post_codeが半角でないと保存できない' do
         @purchase_address.post_code = '１２３－４５６７'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Post code is invalid')
+        expect(@purchase_address.errors.full_messages).to include('郵便番号は不正な値です')
       end
       it 'prefecture_idが初期値では購入できない' do
         @purchase_address.prefecture_id = 1
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("都道府県を選択してください")
       end
       it 'cityが空では購入できない' do
         @purchase_address.city = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("City can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("市区町村を入力してください")
       end
       it 'house_numberが空では購入できない' do
         @purchase_address.house_number = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("House number can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("番地を入力してください")
       end
       it 'phone_numberが空では購入できない' do
         @purchase_address.phone_number = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("電話番号を入力してください")
       end
       it 'phone_numberが10桁以上ではないと購入できない' do
         @purchase_address.phone_number = '098765432'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Phone number is too short (minimum is 10 characters)')
+        expect(@purchase_address.errors.full_messages).to include('電話番号は10文字以上で入力してください')
       end
       it 'phone_numberが12桁以上では購入できない' do
         @purchase_address.phone_number = '098765432198'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+        expect(@purchase_address.errors.full_messages).to include('電話番号は11文字以内で入力してください')
       end
       it 'phone_numberが全角では購入できない' do
         @purchase_address.phone_number = '０９８７６５４３２１０'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@purchase_address.errors.full_messages).to include('電話番号は不正な値です')
       end
       it 'user_idが紐づいていないと購入できない' do
         @purchase_address.user_id = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("Userを入力してください")
       end
       it 'exhibit_idが紐づいていないと購入できない' do
         @purchase_address.exhibit_id = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Exhibit can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("Exhibitを入力してください")
       end
       it 'tokenが空では登録できないこと' do
         @purchase_address.token = nil
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
     end
   end
