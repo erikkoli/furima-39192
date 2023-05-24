@@ -1,0 +1,39 @@
+.mypage-main {
+  background: #f8f8f8;
+}
+
+.mypage-contents {
+  background-color: #FFF;
+  padding: 10vh 0;
+}
+
+.mypage-title {
+  position: relative;
+  width: 20vw;
+  color: #FFF;
+  font-size: 3vh;
+  line-height: 1.0;
+  font-weight: bold;
+  margin: 0 0 15vh 15vw;
+  padding: 1rem 2rem calc(1rem + 10px);
+  background-color: #3ccace;
+}
+
+.mypage-title:before {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 3px solid #000;
+}
+
+.hr1 {
+  position: relative;
+	height: 3px;
+  width: 80vw;
+  border-width: 0;
+  margin-bottom: 60px;
+	background-color: #3ccace;
+  }
