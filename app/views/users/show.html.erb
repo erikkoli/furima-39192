@@ -2,12 +2,29 @@
 
 <div class="mypage-main">
   <div class="mypage-contents">
-    <h2 class="mypage-title">
-      <%= current_user.nickname %>
-    </h2>
+    <div class="mypage-profile">
+      <div class="mypage-profile-left">
+        <%= image_tag 'monster01.png', class: "profile-img" %>
+        <div class="mypage-title">
+          <%= current_user.nickname %>
+        </div>
+      </div>
+      <div class="mypage-profile-right">
+        <div class="mypage-profile-numbers">
+          <div class="mypage-profile-number">0</div>
+          <div class="mypage-profile-number">0</div>
+          <div class="mypage-profile-number">0</div>
+        </div>
+        <div class="mypage-profile-units">
+          <div class="mypage-profile-unit">出品数</div>
+          <div class="mypage-profile-unit">フォロー</div>
+          <div class="mypage-profile-unit">フォロワー</div>
+        </div>
+      </div>
+    </div>
 
-    <hr class="hr1">
-    
+    <hr class="hr1">  
+
     <ul class='item-lists'>
       <% @exhibits.each do |exhibit| %>
         <li class='list'>

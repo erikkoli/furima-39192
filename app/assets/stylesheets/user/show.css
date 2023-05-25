@@ -4,29 +4,70 @@
 
 .mypage-contents {
   background-color: #FFF;
-  padding: 10vh 0;
+}
+
+.mypage-profile {
+  display: flex;
+  justify-content: space-between;
+  height: 30vh;
+  padding: 10vh 20vw;
+}
+
+.mypage-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30vh;
+}
+
+.profile-img {
+  height: 96px;
+  width: 96px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background-position: center center;
 }
 
 .mypage-title {
-  position: relative;
-  width: 20vw;
-  color: #FFF;
-  font-size: 3vh;
+  width: 15vw;
+  font-size: 2vh;
   line-height: 1.0;
   font-weight: bold;
-  margin: 0 0 15vh 15vw;
-  padding: 1rem 2rem calc(1rem + 10px);
-  background-color: #3ccace;
+  text-align: center;
 }
 
-.mypage-title:before {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 100%;
-  height: 100%;
-  content: '';
-  border: 3px solid #000;
+.mypage-profile-right {
+  width: 80vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mypage-profile-numbers {
+  width: 45vw;
+  display: flex;
+  font-size: 25px;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.mypage-profile-number {
+  width: 80px;
+  text-align: center;
+}
+
+.mypage-profile-units {
+  width: 45vw;
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+}
+
+.mypage-profile-unit {
+  width: 80px;
+  text-align: center;
 }
 
 .hr1 {
