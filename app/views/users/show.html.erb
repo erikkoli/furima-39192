@@ -4,21 +4,40 @@
   <div class="mypage-contents">
     <div class="mypage-profile">
       <div class="mypage-profile-left">
-        <%= image_tag 'monster01.png', class: "profile-img" %>
-        <div class="mypage-title">
-          <%= current_user.nickname %>
+        <% if @user.image.present? %>
+          <%= image_tag @user.image, class: "profile-img" %>
+        <% else %>
+          <%= image_tag 'monster01.png', class: "profile-img" %>
+        <% end %>
+        <div class="mypage-nickname">
+          <%= @user.nickname %>
         </div>
+        <%= link_to 'プロフィールを編集', edit_user_path(@user), class:"profile-edit-btn", method: :get %>
       </div>
       <div class="mypage-profile-right">
-        <div class="mypage-profile-numbers">
-          <div class="mypage-profile-number">0</div>
-          <div class="mypage-profile-number">0</div>
-          <div class="mypage-profile-number">0</div>
+        <div class="mypage-right-top">
+          <div class="mypage-profile-numbers">
+            <div class="mypage-profile-number">0</div>
+            <div class="mypage-profile-number">0</div>
+            <div class="mypage-profile-number">0</div>
+          </div>
+          <div class="mypage-profile-units">
+            <div class="mypage-profile-unit">出品数</div>
+            <div class="mypage-profile-unit">フォロー</div>
+            <div class="mypage-profile-unit">フォロワー</div>
+          </div>
         </div>
-        <div class="mypage-profile-units">
-          <div class="mypage-profile-unit">出品数</div>
-          <div class="mypage-profile-unit">フォロー</div>
-          <div class="mypage-profile-unit">フォロワー</div>
+        <div class="mypage-right-bottom">
+          <div class="mypage-introduce-title">自己紹介</div>
+          <% if @user.introduce.present? %>
+            <input id="check1" class="readmore-check" type="checkbox">
+            <div class="mypage-introduce">
+              <%= @user.introduce %>
+            </div>
+            <label class="readmore-label" for="check1"></label>
+          <% else %>
+            <div class="none-introduce">自己紹介は登録されていません</div>
+          <% end %>
         </div>
       </div>
     </div>

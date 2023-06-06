@@ -9,7 +9,7 @@
 .mypage-profile {
   display: flex;
   justify-content: space-between;
-  height: 30vh;
+  height: 40vh;
   padding: 10vh 20vw;
 }
 
@@ -28,17 +28,33 @@
   background-position: center center;
 }
 
-.mypage-title {
+.mypage-nickname {
   width: 15vw;
-  font-size: 2vh;
+  font-size: 20px;
   line-height: 1.0;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+
+a.profile-edit-btn {
+  text-decoration: none;
+  color: #3ccace;
+  border: 2px solid #3ccace;
+  border-radius: 0;
+  background: #fff;
+  padding: 5px;
+}
+
+a.profile-edit-btn:hover {
+  color: #fff;
+  background:  #3ccace;
 }
 
 .mypage-profile-right {
   width: 80vw;
-  height: 15vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +65,7 @@
   display: flex;
   font-size: 25px;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 15px;
 }
 
@@ -70,11 +86,94 @@
   text-align: center;
 }
 
+.mypage-right-bottom {
+  margin-top: 38px;
+  width: 45vw;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mypage-introduce-title {
+  width: 15vw;
+  font-size: 2vh;
+  line-height: 1.0;
+  font-weight: bold;
+  padding-left: 80px;
+  margin-bottom: 20px;
+}
+
+.mypage-introduce {
+  position: relative;
+  overflow: hidden;
+  height: 70px;
+  padding-left: 80px;
+}
+
+.mypage-introduce::before {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  content: "";
+  /*グラデーションの色と高さ*/
+  height: 50px;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+  background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+}
+
+/* 続きを読むボタン */
+.readmore-label{
+  display: table;
+  bottom: 5px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  margin: 0 auto;
+  z-index: 2;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: #3ccace;
+}
+
+.readmore-label:before{
+  content: '続きを読む';
+}
+
+.readmore-check{
+  display: none;
+}
+/*チェック時にボタンを非表示*/
+.readmore-check:checked ~ .readmore-label{
+  position: static;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
+  /* display: none; */
+}
+.readmore-check:checked ~ .readmore-label:before{
+  content: '閉じる';
+}
+/*チェック時に高さを自動に戻す*/
+.readmore-check:checked ~ .mypage-introduce{
+  height: auto;
+}
+/*チェック時グラデーション等を削除*/
+.readmore-check:checked ~ .mypage-introduce::before {
+  display: none;
+}
+
+.none-introduce {
+  padding-left: 80px;
+}
+
 .hr1 {
   position: relative;
 	height: 3px;
   width: 80vw;
   border-width: 0;
-  margin-bottom: 60px;
+  margin: 60px auto;
 	background-color: #3ccace;
   }

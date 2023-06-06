@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :exhibits do
     resources :purchases, only: [:index, :create]
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
 end
