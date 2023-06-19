@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to exhibit_path(params[:exhibit_id])
-    end 
+    end
+
   end
 
   private
