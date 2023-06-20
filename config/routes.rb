@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "exhibits#index"
   resources :exhibits do
     resources :purchases, only: [:index, :create]
+    resources :comments, only: :create
   end
   resources :users, only: [:show, :edit, :update]
 end

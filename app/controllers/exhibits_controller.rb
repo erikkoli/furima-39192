@@ -23,6 +23,8 @@ class ExhibitsController < ApplicationController
 
   def show
     @purchased_exhibits = Purchase.where(exhibit_id: @exhibit.id)
+    @comments = @exhibit.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def edit

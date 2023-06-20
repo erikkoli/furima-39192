@@ -15,4 +15,5 @@ class User < ApplicationRecord
   has_many :exhibits
   has_many :purchases
   has_one_attached :image
+  has_many :comments
 end

@@ -141,6 +141,35 @@
 
 /* /商品の概要 */
 
+.comments {
+  margin: 30px auto;
+  width: 40vw;
+}
+
+.comments h4 {
+  font-size: 18px;
+  color:#3CCACE;
+  font-weight: bold;
+}
+
+.comment{
+  display: flex;
+  height: 40px;
+  line-height: 2.8;
+  background-color: #fff;
+  margin: 20px 0;
+}
+
+.comment p{
+  margin: 0;
+  display: block;
+}
+
+.user-info{
+  color: gray;
+  font-weight: bold;
+}
+
 .comment-box {
   width: 40vw;
   background-color: #fff;
