@@ -155,9 +155,9 @@
 .comment{
   display: flex;
   height: 40px;
-  line-height: 2.8;
   background-color: #fff;
   margin: 20px 0;
+  padding: 10px;
 }
 
 .comment p{
@@ -168,6 +168,12 @@
 .user-info{
   color: gray;
   font-weight: bold;
+}
+
+.non-comment-message {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .comment-box {

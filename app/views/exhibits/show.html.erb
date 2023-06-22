@@ -85,22 +85,28 @@
 
   <div class="comments" id="comments">
     <h4>コメント一覧</h4>
-      <% if @comments.exists? %>
-        <% @exhibit.comments.each do |comment| %>
-          <div class="comment">
-            <p class="user-info"><%= comment.user.nickname %>： </p>
-            <p><%= comment.text %></p>
+      <% if user_signed_in? %>
+        <% if @comments.exists? %>
+          <% @exhibit.comments.each do |comment| %>
+            <div class="comment">
+              <p class="user-info"><%= comment.user.nickname %>： </p>
+              <p><%= comment.text %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="non-comment-message">
+            コメントはまだありません
           </div>
         <% end %>
       <% else %>
         <div class="non-comment-message">
-          コメントはまだありません
+          会員登録をすると見れるようになります
         </div>
       <% end %>
   </div>
 
   <div class="comment-box">
-    <% if user_signed_in? %>  
+    <% if user_signed_in? && !@purchased_exhibits.exists? %>  
       <%= form_with model: [@exhibit, @comment], id: "comment-form" do |f| %>
         <%= f.text_area :text, class:"comment-text" %>
         <p class="comment-warn">
